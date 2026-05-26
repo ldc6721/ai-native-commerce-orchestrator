@@ -320,9 +320,8 @@ features/
 
 현재는 Local-First Kubernetes 환경을 우선합니다.
 
-추천 환경:
+결정된 Local Kubernetes 환경:
 
-* k3d
 * kind
 
 경량 Local Workflow 를 위한 Docker Compose 도 고려합니다.
@@ -361,11 +360,6 @@ NGINX 는 다음 역할을 수행합니다.
 apps/
   backend/
   frontend/
-
-packages/
-  shared-types/
-  shared-utils/
-  api-contracts/
 
 infra/
   kubernetes/

@@ -34,6 +34,7 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 - QA workflow.
 - Architecture policy.
 - Testing policy.
+- Contract artifact policy.
 - Definition of Ready.
 - Definition of Done.
 - Domain ownership.
@@ -64,6 +65,8 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 - Redis usage strategy.
 - NGINX gateway strategy.
 - Initial domain contract plan.
+- Contract artifact governance.
+- Stage 1 architecture planning backlog.
 - ADR 초안.
 
 ### 완료 조건
@@ -71,6 +74,7 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 - scaffold를 생성해도 되는 repository structure가 합의되어 있다.
 - backend/frontend/infra boundary가 명확하다.
 - local-first 개발 환경 방향이 결정되어 있다.
+- contract가 package가 아니라 domain-owned artifact로 관리된다는 기준이 확정되어 있다.
 - 주요 architecture decision이 ADR로 기록되어 있다.
 
 ## Stage 2 - Scaffold Readiness
@@ -128,12 +132,11 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 
 ## 지금 먼저 해야 할 일
 
-현재는 Stage 0입니다. 다음 우선순위는 다음과 같습니다.
+현재는 Stage 1 architecture planning artifact 초안 작성이 진행되었습니다. 다음 우선순위는 다음과 같습니다.
 
-1. 세부 실행자 중심 표현을 제거하고 workstream 중심으로 정리한다.
-2. Issue template을 만든다.
-3. Definition of Ready와 Definition of Done을 만든다.
-4. Artifact registry를 만든다.
-5. Stage 1 architecture planning backlog를 만든다.
+1. Stage 1 draft artifact review.
+2. 필요한 artifact를 active 또는 approved draft 상태로 승격한다.
+3. Stage 2 scaffold readiness backlog를 만든다.
+4. Stage 2 전에 필요한 최소 ADR을 작성한다.
 
 이 순서가 끝나면 backend, frontend, infrastructure scaffold를 논의할 준비가 됩니다.

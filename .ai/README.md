@@ -17,9 +17,10 @@
 5. `.ai/domains/domain-ownership.md`
 6. `.ai/policies/architecture-policy.md`
 7. `.ai/policies/testing-policy.md`
-8. `.ai/policies/definition-of-ready.md`
-9. `.ai/policies/definition-of-done.md`
-10. `.ai/registry/artifact-registry.md`
+8. `.ai/policies/contract-artifact-policy.md`
+9. `.ai/policies/definition-of-ready.md`
+10. `.ai/policies/definition-of-done.md`
+11. `.ai/registry/artifact-registry.md`
 
 이후 각 역할에 맞는 문서를 읽습니다.
 
@@ -52,6 +53,7 @@
 - Workflow 정의.
 - Ownership model 정의.
 - Policy 정의.
+- Contract artifact governance.
 - Artifact 및 issue template 정의.
 - Definition of Ready / Definition of Done.
 - Artifact registry.

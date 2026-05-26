@@ -34,7 +34,7 @@ Infrastructure:
 - Kubernetes.
 - Docker.
 - NGINX.
-- Local-first k3d 또는 kind environment.
+- Local-first kind environment.
 
 ## Boundary 규칙
 
@@ -44,6 +44,8 @@ Infrastructure:
 - persistence change는 migration strategy를 포함해야 한다.
 - Redis 사용은 session, cache, future async/event support 중 목적을 명시해야 한다.
 - Frontend feature는 domain ownership과 contract boundary에 매핑되어야 한다.
+- Shared utility, shared type, api-contract package는 초기 구조에 만들지 않는다.
+- Contract는 code package가 아니라 domain-owned document artifact로 관리한다.
 
 ## Architecture Decision Record
 
