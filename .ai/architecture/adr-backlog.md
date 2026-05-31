@@ -6,7 +6,7 @@
 - Artifact type: architecture backlog.
 - Owning team: PM / Orchestrator.
 - Owning domain: Architecture Governance.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-009 ADR Backlog.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -40,7 +40,7 @@ ADR이 없어도 되는 경우:
 - Owner: PM / Orchestrator.
 - Source artifact: `.ai/architecture/monorepo-structure-decision.md`.
 - Trigger condition: Stage 2 scaffold 시작 전.
-- Status: candidate.
+- Status: approved.
 
 ### ADR-002 NestJS Backend Architecture
 
@@ -61,7 +61,7 @@ ADR이 없어도 되는 경우:
 - Owner: Infrastructure Team.
 - Source artifact: `.ai/architecture/local-infrastructure-strategy.md`.
 - Trigger condition: Infrastructure scaffold plan 작성 전.
-- Status: candidate.
+- Status: approved.
 
 ### ADR-005 NGINX Gateway Strategy
 
@@ -89,7 +89,7 @@ ADR이 없어도 되는 경우:
 - Owner: PM / Orchestrator.
 - Source artifact: `.ai/policies/contract-artifact-policy.md`.
 - Trigger condition: Stage 2 scaffold 시작 전.
-- Status: candidate.
+- Status: approved.
 
 ## Stage 2 전 최소 ADR 세트
 

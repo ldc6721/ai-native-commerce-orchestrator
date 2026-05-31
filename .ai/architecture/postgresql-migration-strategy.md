@@ -6,7 +6,7 @@
 - Artifact type: architecture strategy.
 - Owning team: Backend Platform Team.
 - Owning domain: Backend Platform.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-006 PostgreSQL Migration Strategy.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -18,22 +18,25 @@
 ## 핵심 결정
 
 - PostgreSQL schema 변경은 migration 기반으로 관리한다.
+- Migration tool은 Prisma를 사용한다.
+- DB schema 변경은 Prisma migration으로만 관리한다.
+- Raw SQL 기반 schema 변경은 사용하지 않는다.
 - Stage 1에서는 migration file을 생성하지 않는다.
 - Auth first vertical slice에 필요한 persistence 요구사항만 우선 고려한다.
 - domain별 분리 가능성은 보존하되 초기부터 과도하게 분리하지 않는다.
 
 ## Migration Tool 결정 기준
 
-Migration tool은 Stage 2 전에 다음 기준으로 결정합니다.
+Migration tool은 Prisma로 결정합니다. Stage 2에서는 다음 기준으로 Prisma setup을 검증합니다.
 
 - NestJS와의 통합 난이도.
 - TypeScript workflow 적합성.
-- rollback 지원.
+- Prisma migration rollback 운영 방식.
 - CI 실행 가능성.
 - local kind 환경과의 연결성.
 - schema drift 탐지 가능성.
 
-후보는 Stage 2 scaffold readiness에서 비교합니다.
+다른 migration tool 후보 비교는 Stage 1 범위에서 종료합니다.
 
 ## Schema Ownership
 
@@ -93,8 +96,7 @@ PostgreSQL scaffold planning은 다음이 준비된 뒤 진행합니다.
 
 ## Open Questions
 
-- ORM 또는 query builder.
-- Migration tool.
+- Prisma client integration boundary.
 - Schema namespace strategy.
 - Test database reset strategy.
 - Seed execution command.

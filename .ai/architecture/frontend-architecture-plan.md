@@ -6,7 +6,7 @@
 - Artifact type: architecture plan.
 - Owning team: Frontend Team.
 - Owning domain: Frontend Shell.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-004 Frontend Architecture Plan.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -21,6 +21,8 @@
 - Stage 1에서는 frontend scaffold를 생성하지 않는다.
 - Stage 2에서 `apps/frontend` scaffold를 생성할 수 있다.
 - Frontend는 shared type package가 아니라 domain-owned contract artifact를 기준으로 API를 통합한다.
+- API client boundary는 feature/domain 별로 개별 관리한다.
+- shared API client layer는 만들지 않는다.
 - 첫 vertical slice는 Auth 중심이다.
 
 ## 후보 Feature Structure
@@ -36,7 +38,6 @@ apps/frontend/
     shared/
       ui/
       routing/
-      api-client/
 ```
 
 주의: 위 구조는 후보이며 Stage 1에서는 생성하지 않습니다.
@@ -68,13 +69,15 @@ Auth feature가 소유하지 않는 것:
 - component는 domain behavior를 암묵적으로 소유하지 않는다.
 - reusable UI는 domain-neutral일 때만 shared UI 후보가 된다.
 - feature 내부 component는 해당 domain owner의 contract를 따른다.
-- API integration은 feature boundary 또는 app-level API client boundary에서 명시적으로 관리한다.
+- API integration은 feature/domain boundary 안에서 명시적으로 관리한다.
 
 ## API Integration 원칙
 
 - API shape의 source of truth는 `.ai/domains/*` contract artifact이다.
 - TypeScript type은 구현 편의 산출물이며 source of truth가 아니다.
 - generated client가 생기더라도 contract artifact를 대체하지 않는다.
+- shared API client layer는 생성하지 않는다.
+- Auth feature는 Auth API contract에 맞춘 자체 API client boundary를 가진다.
 - frontend는 credential failure detail을 추론하지 않는다.
 - session 상태는 backend session contract와 동기화되어야 한다.
 
@@ -120,6 +123,6 @@ Frontend scaffold는 다음이 준비된 뒤 생성할 수 있습니다.
 - Routing library.
 - Server state management approach.
 - Form validation approach.
-- API client implementation detail.
+- Feature/domain API client implementation detail.
 - UI component library 여부.
 - Authenticated route UX.

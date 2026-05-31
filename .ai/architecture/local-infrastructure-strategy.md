@@ -6,7 +6,7 @@
 - Artifact type: infrastructure strategy.
 - Owning team: Infrastructure Team.
 - Owning domain: Infrastructure.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-005 Local Infrastructure Strategy.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -20,7 +20,8 @@
 - Local Kubernetes는 `kind`를 기준으로 한다.
 - Stage 1에서는 Kubernetes manifest를 생성하지 않는다.
 - Stage 1에서는 Docker Compose를 생성하지 않는다.
-- PostgreSQL, Redis, NGINX의 local 배치는 Stage 2 scaffold plan에서 구체화한다.
+- PostgreSQL과 Redis는 local kind cluster 외부에 구성한다.
+- NGINX의 local 배치는 Stage 2 scaffold plan에서 구체화한다.
 - Infrastructure artifact는 `.ai/architecture/*`에서 먼저 결정한다.
 
 ## kind 선택 기준
@@ -37,8 +38,8 @@ kind를 기준으로 하는 이유:
 Stage 2 이후 후보:
 
 - kind cluster.
-- PostgreSQL workload 또는 local dependency.
-- Redis workload 또는 local dependency.
+- External PostgreSQL local dependency.
+- External Redis local dependency.
 - NGINX gateway 또는 ingress-facing gateway 후보.
 - backend service.
 - frontend service.
@@ -54,13 +55,14 @@ Stage 2 이후 후보:
 
 ## PostgreSQL Local 원칙
 
-- PostgreSQL은 migration 기반 운영을 전제로 한다.
-- Stage 2에서 local DB bootstrap 방식이 결정된다.
+- PostgreSQL은 kind cluster 외부 local dependency로 둔다.
+- PostgreSQL은 Prisma migration 기반 운영을 전제로 한다.
 - data persistence, seed, reset strategy는 PostgreSQL migration strategy를 따른다.
 
 ## Redis Local 원칙
 
 - Redis 초기 목적은 session management이다.
+- Redis는 kind cluster 외부 local dependency로 둔다.
 - Stage 2에서 Redis availability와 reset strategy를 정의한다.
 - cache와 queue/event usage는 future consideration이다.
 
@@ -90,8 +92,6 @@ Infrastructure scaffold는 다음이 준비된 뒤 생성할 수 있습니다.
 
 ## Open Questions
 
-- PostgreSQL을 cluster 내부 workload로 둘지 외부 container로 둘지.
-- Redis를 cluster 내부 workload로 둘지 외부 container로 둘지.
 - NGINX를 ingress controller로 볼지 gateway workload로 볼지.
 - local image build strategy.
 - CI에서 kind를 사용할지 별도 경량 validation을 둘지.

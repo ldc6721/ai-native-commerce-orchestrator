@@ -6,7 +6,7 @@
 - Artifact type: API contract.
 - Owning team: Auth Team.
 - Owning domain: Auth.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-002 Auth Domain Contract Plan.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -19,10 +19,10 @@
 
 Initial endpoints:
 
-- `POST /auth/login`
-- `POST /auth/logout`
-- `GET /auth/me`
-- `GET /auth/session`
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
+- `GET /api/auth/me`
+- `GET /api/auth/session`
 
 Out of scope:
 
@@ -36,7 +36,7 @@ Out of scope:
 
 - Response body must not expose password, password hash, credential metadata, or session store payload.
 - Error response should be stable enough for frontend behavior but must not leak sensitive credential detail.
-- Session transport mechanism is not finalized in this contract.
+- Session transport is cookie-based.
 - Session storage is expected to be server-side and Redis-backed.
 - API implementation must follow this document, not a shared generated package.
 
@@ -91,7 +91,7 @@ Initial error codes:
 
 ## Endpoint Contracts
 
-### `POST /auth/login`
+### `POST /api/auth/login`
 
 Purpose:
 
@@ -117,7 +117,7 @@ Expected behavior:
 
 - Valid credentials create or refresh an authenticated server-side session.
 - Invalid credentials return a stable auth error without exposing which credential failed.
-- Session transport details are decided by backend architecture and security review.
+- Session is established through cookie-based transport.
 
 Failure cases:
 
@@ -126,7 +126,7 @@ Failure cases:
 - Session store unavailable.
 - Unexpected server error.
 
-### `POST /auth/logout`
+### `POST /api/auth/logout`
 
 Purpose:
 
@@ -157,7 +157,7 @@ Failure cases:
 - Session store unavailable.
 - Unexpected server error.
 
-### `GET /auth/me`
+### `GET /api/auth/me`
 
 Purpose:
 
@@ -183,7 +183,7 @@ Failure cases:
 - Expired session.
 - Invalid session.
 
-### `GET /auth/session`
+### `GET /api/auth/session`
 
 Purpose:
 
@@ -212,10 +212,11 @@ Expected behavior:
 
 ## Frontend Integration Expectations
 
-- Frontend login feature uses `POST /auth/login`.
-- Frontend logout action uses `POST /auth/logout`.
-- App bootstrap or protected route check may use `GET /auth/session`.
-- User profile display may use `GET /auth/me`.
+- Frontend login feature uses `POST /api/auth/login`.
+- Frontend logout action uses `POST /api/auth/logout`.
+- App bootstrap or protected route check may use `GET /api/auth/session`.
+- User profile display may use `GET /api/auth/me`.
+- API client logic is managed per feature/domain. A shared API client layer is not created.
 - Frontend must not infer credential failure reason from error detail.
 
 ## Backend Integration Expectations
@@ -238,7 +239,6 @@ Expected behavior:
 
 ## Open Questions
 
-- Cookie vs header session transport.
 - CSRF protection model.
 - Exact HTTP status codes.
 - Session TTL.

@@ -132,11 +132,12 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 
 ## 지금 먼저 해야 할 일
 
-현재는 Stage 1 architecture planning artifact 초안 작성이 진행되었습니다. 다음 우선순위는 다음과 같습니다.
+현재는 Stage 1 completion review가 완료되어 Stage 2 Scaffold Readiness planning을 시작할 수 있습니다. 다음 우선순위는 다음과 같습니다.
 
-1. Stage 1 draft artifact review.
-2. 필요한 artifact를 active 또는 approved draft 상태로 승격한다.
-3. Stage 2 scaffold readiness backlog를 만든다.
-4. Stage 2 전에 필요한 최소 ADR을 작성한다.
+1. Stage 2 scaffold readiness backlog를 만든다.
+2. Backend scaffold plan을 만든다.
+3. Frontend scaffold plan을 만든다.
+4. Infrastructure scaffold plan을 만든다.
+5. Local environment validation plan을 만든다.
 
-이 순서가 끝나면 backend, frontend, infrastructure scaffold를 논의할 준비가 됩니다.
+이 순서가 끝나면 backend, frontend, infrastructure scaffold PR 단위를 논의할 준비가 됩니다.

@@ -6,7 +6,7 @@
 - Artifact type: domain contract.
 - Owning team: Auth Team.
 - Owning domain: Auth.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-002 Auth Domain Contract Plan.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -71,7 +71,8 @@ Session은 사용자가 login 이후 authenticated state를 유지하기 위한 
 초기 결정:
 
 - Redis-backed session을 전제로 한다.
-- Session id는 client가 보유할 수 있지만 session payload의 source of truth는 server-side store이다.
+- Session transport는 cookie 기반으로 구성한다.
+- Session id는 cookie를 통해 client에 전달될 수 있지만 session payload의 source of truth는 server-side Redis store이다.
 - Session TTL은 Redis usage strategy에서 확정한다.
 - Session invalidation은 logout과 expiration을 포함한다.
 
@@ -165,8 +166,7 @@ Stage 3 validation:
 ## Open Questions
 
 - Session TTL value.
-- Cookie-based session vs header-carried session id.
-- CSRF protection strategy.
+- CSRF protection detail.
 - Password hashing algorithm.
 - User persistence model.
 - Error response detail level.

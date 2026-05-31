@@ -21,8 +21,13 @@ Stage 1은 다음 조건을 만족할 때 완료됩니다.
 - backend, frontend, infrastructure boundary가 명확하다.
 - contract가 domain-owned document artifact로 관리된다는 기준이 반영되어 있다.
 - Auth 중심 first vertical slice의 contract와 architecture dependency가 정의되어 있다.
+- Auth session transport는 cookie 기반으로 결정되어 있다.
 - kind 기반 local infrastructure 방향이 결정되어 있다.
+- PostgreSQL과 Redis는 local kind cluster 외부 dependency로 결정되어 있다.
 - PostgreSQL, Redis, NGINX의 초기 역할과 제한이 정의되어 있다.
+- PostgreSQL schema 변경은 Prisma migration으로만 관리하기로 결정되어 있다.
+- NGINX Auth routing prefix는 `/api/auth`로 결정되어 있다.
+- Frontend API client는 feature/domain별로 관리하고 shared API client layer를 만들지 않기로 결정되어 있다.
 - 주요 architecture decision이 ADR backlog에 등록되어 있다.
 
 ## Backlog 우선순위
@@ -72,7 +77,7 @@ Result:
   - `.ai/domains/auth/auth-domain-contract.md`
   - `.ai/domains/auth/auth-api-contract.md`
 - ADR candidate: none by default.
-- Status: draft.
+- Status: approved draft.
 
 문제 정의:
 
@@ -96,7 +101,7 @@ Result:
 
 - Artifact created: `.ai/domains/auth/auth-domain-contract.md`.
 - Artifact created: `.ai/domains/auth/auth-api-contract.md`.
-- Contract status is draft until backend, frontend, infrastructure, and QA planning reviews are complete.
+- Contract status is approved draft after cookie-based session transport and `/api/auth` prefix decisions.
 
 ### S1-003 Backend Architecture Plan
 
@@ -107,7 +112,7 @@ Result:
 - Supporting teams: Auth Team, Infrastructure Team, QA Team.
 - Target artifact: `.ai/architecture/backend-architecture-plan.md`.
 - ADR candidate: `ADR-002-nestjs-backend-architecture.md`.
-- Status: draft.
+- Status: approved draft.
 
 문제 정의:
 
@@ -141,7 +146,7 @@ Result:
 - Supporting teams: Auth Team, Backend Platform Team, QA Team.
 - Target artifact: `.ai/architecture/frontend-architecture-plan.md`.
 - ADR candidate: `ADR-003-react-frontend-architecture.md`.
-- Status: draft.
+- Status: approved draft.
 
 문제 정의:
 
@@ -175,7 +180,7 @@ Result:
 - Supporting teams: Backend Platform Team, Frontend Team, QA Team.
 - Target artifact: `.ai/architecture/local-infrastructure-strategy.md`.
 - ADR candidate: `ADR-004-kind-local-kubernetes.md`.
-- Status: draft.
+- Status: approved draft.
 
 문제 정의:
 
@@ -208,7 +213,7 @@ Result:
 - Supporting teams: Auth Team, QA Team.
 - Target artifact: `.ai/architecture/postgresql-migration-strategy.md`.
 - ADR candidate: `ADR-007-postgresql-migration-strategy.md`.
-- Status: draft.
+- Status: approved draft.
 
 문제 정의:
 
@@ -241,7 +246,7 @@ Result:
 - Supporting teams: Auth Team, Infrastructure Team, QA Team.
 - Target artifact: `.ai/architecture/redis-usage-strategy.md`.
 - ADR candidate: `ADR-006-redis-session-strategy.md`.
-- Status: draft.
+- Status: approved draft.
 
 문제 정의:
 
@@ -274,7 +279,7 @@ Result:
 - Supporting teams: Frontend Team, Backend Platform Team, QA Team.
 - Target artifact: `.ai/architecture/nginx-gateway-strategy.md`.
 - ADR candidate: `ADR-005-nginx-gateway-strategy.md`.
-- Status: draft.
+- Status: approved draft.
 
 문제 정의:
 
@@ -305,7 +310,7 @@ Result:
 - Owner: PM / Orchestrator.
 - Supporting teams: All architecture owners.
 - Target artifact: `.ai/architecture/adr-backlog.md`.
-- Status: draft.
+- Status: approved draft.
 
 문제 정의:
 

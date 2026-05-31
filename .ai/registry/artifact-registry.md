@@ -7,6 +7,7 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 ## 상태 값
 
 - draft: 작성 중이며 아직 운영 기준으로 고정되지 않음.
+- approved draft: Stage 2 planning에 참조 가능하지만 일부 세부 결정은 남아 있음.
 - active: 현재 운영 기준으로 사용.
 - deprecated: 더 이상 기준으로 사용하지 않음.
 
@@ -17,14 +18,18 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/README.md` | Entry point | PM / Orchestrator | active | AI 조직 운영 문서의 시작점. |
 | `.ai/stage-roadmap.md` | Roadmap | PM / Orchestrator | active | Stage별 목표와 다음 작업 순서 정의. |
 | `.ai/stage-1-architecture-planning-backlog.md` | Backlog | PM / Orchestrator | active | Stage 1 architecture planning 작업 목록과 실행 순서. |
+| `.ai/stage-1-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 1 완료 조건별 evidence와 Stage 2 진입 판단. |
 | `.ai/architecture/monorepo-structure-decision.md` | Architecture decision | PM / Orchestrator | active | Stage 2 scaffold를 위한 repository top-level 구조 결정. |
-| `.ai/architecture/backend-architecture-plan.md` | Architecture plan | Backend Platform Team | draft | NestJS backend boundary와 Auth session 중심 backend 계획. |
-| `.ai/architecture/frontend-architecture-plan.md` | Architecture plan | Frontend Team | draft | React frontend feature boundary와 Auth integration 계획. |
-| `.ai/architecture/local-infrastructure-strategy.md` | Infrastructure strategy | Infrastructure Team | draft | kind 기반 local infrastructure 방향. |
-| `.ai/architecture/postgresql-migration-strategy.md` | Architecture strategy | Backend Platform Team | draft | PostgreSQL migration 기반 운영 전략. |
-| `.ai/architecture/redis-usage-strategy.md` | Architecture strategy | Backend Platform Team | draft | Redis session management 중심 사용 전략. |
-| `.ai/architecture/nginx-gateway-strategy.md` | Infrastructure strategy | Infrastructure Team | draft | NGINX reverse proxy/gateway 역할 전략. |
-| `.ai/architecture/adr-backlog.md` | Architecture backlog | PM / Orchestrator | draft | Stage 1 architecture decision ADR 후보 목록. |
+| `.ai/architecture/backend-architecture-plan.md` | Architecture plan | Backend Platform Team | approved draft | NestJS backend boundary와 Auth session 중심 backend 계획. |
+| `.ai/architecture/frontend-architecture-plan.md` | Architecture plan | Frontend Team | approved draft | React frontend feature boundary와 Auth integration 계획. |
+| `.ai/architecture/local-infrastructure-strategy.md` | Infrastructure strategy | Infrastructure Team | approved draft | kind 기반 local infrastructure 방향. |
+| `.ai/architecture/postgresql-migration-strategy.md` | Architecture strategy | Backend Platform Team | approved draft | PostgreSQL migration 기반 운영 전략. |
+| `.ai/architecture/redis-usage-strategy.md` | Architecture strategy | Backend Platform Team | approved draft | Redis session management 중심 사용 전략. |
+| `.ai/architecture/nginx-gateway-strategy.md` | Infrastructure strategy | Infrastructure Team | approved draft | NGINX reverse proxy/gateway 역할 전략. |
+| `.ai/architecture/adr-backlog.md` | Architecture backlog | PM / Orchestrator | approved draft | Stage 1 architecture decision ADR 후보 목록. |
+| `.ai/architecture/adrs/ADR-001-monorepo-structure.md` | ADR | PM / Orchestrator | active | Monorepo top-level 구조 결정. |
+| `.ai/architecture/adrs/ADR-004-kind-local-kubernetes.md` | ADR | Infrastructure Team | active | kind 기반 local Kubernetes 결정. |
+| `.ai/architecture/adrs/ADR-008-contract-as-domain-owned-artifact.md` | ADR | PM / Orchestrator | active | Contract를 domain-owned artifact로 관리하는 결정. |
 | `.ai/workflows/workflow-entrypoint.md` | Workflow | PM / Orchestrator | active | 요청 유형 분류와 workflow routing. |
 | `.ai/workflows/workstream-lifecycle.md` | Workflow | PM / Orchestrator | active | 요건 파악부터 최종 리뷰까지 공통 작업 생명주기. |
 | `.ai/workflows/issue-management-workflow.md` | Workflow | PM / Orchestrator | active | Issue 생성, triage, closure 흐름. |
@@ -37,8 +42,8 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/agents/qa-team.md` | Agent | QA Team | active | QA 역할과 failure 처리 기준. |
 | `.ai/agents/minimum-operating-loops.md` | Agent workflow | PM / Orchestrator | active | Agent별 최소 운영 루프. |
 | `.ai/domains/domain-ownership.md` | Ownership | PM / Orchestrator | active | 초기 domain owner와 boundary. |
-| `.ai/domains/auth/auth-domain-contract.md` | Domain contract | Auth Team | draft | Auth domain 책임, 경계, session expectation. |
-| `.ai/domains/auth/auth-api-contract.md` | API contract | Auth Team | draft | Auth first vertical slice API boundary. |
+| `.ai/domains/auth/auth-domain-contract.md` | Domain contract | Auth Team | approved draft | Auth domain 책임, 경계, session expectation. |
+| `.ai/domains/auth/auth-api-contract.md` | API contract | Auth Team | approved draft | Auth first vertical slice API boundary. |
 | `.ai/policies/architecture-policy.md` | Policy | PM / Orchestrator | active | Architecture 원칙과 boundary rule. |
 | `.ai/policies/testing-policy.md` | Policy | QA Team | active | Test와 validation 기대치. |
 | `.ai/policies/contract-artifact-policy.md` | Policy | PM / Orchestrator | active | Contract를 package가 아닌 domain-owned artifact로 관리하는 기준. |

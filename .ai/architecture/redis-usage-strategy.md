@@ -6,7 +6,7 @@
 - Artifact type: architecture strategy.
 - Owning team: Backend Platform Team.
 - Owning domain: Backend Platform.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-007 Redis Usage Strategy.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -18,6 +18,7 @@
 ## 핵심 결정
 
 - Redis 초기 역할은 session management이다.
+- Local Redis는 kind cluster 외부에 구성한다.
 - Cache layer는 Stage 1 범위가 아니다.
 - Queue/event usage는 future consideration이다.
 - Stage 1에서는 Redis config나 runtime manifest를 생성하지 않는다.
@@ -26,6 +27,7 @@
 
 - Session source of truth는 server-side Redis store이다.
 - Client는 session identifier 또는 transport credential만 보유한다.
+- Session transport는 cookie 기반으로 구성한다.
 - Session payload는 frontend에 직접 노출하지 않는다.
 - Logout은 Redis session invalidation과 연결된다.
 - Expired session은 anonymous state로 처리 가능해야 한다.
@@ -97,6 +99,5 @@ Redis scaffold planning은 다음이 준비된 뒤 진행합니다.
 
 - Session TTL.
 - Sliding expiration.
-- Cookie vs header session transport.
 - Session serialization format.
-- Redis persistence mode in local kind.
+- External local Redis reset strategy.

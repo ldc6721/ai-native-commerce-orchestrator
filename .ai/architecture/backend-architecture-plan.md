@@ -6,7 +6,7 @@
 - Artifact type: architecture plan.
 - Owning team: Backend Platform Team.
 - Owning domain: Backend Platform.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-003 Backend Architecture Plan.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -23,6 +23,7 @@
 - Backend 구현은 `.ai/domains/*` contract artifact를 기준으로 한다.
 - `shared-utils`, `shared-types`, `packages/api-contracts`는 사용하지 않는다.
 - Auth first vertical slice는 session 기반 인증 흐름을 우선한다.
+- Auth session transport는 cookie 기반으로 구성한다.
 
 ## 후보 Module Boundary
 
@@ -65,7 +66,9 @@ Auth module이 직접 소유하지 않는 것:
 
 - PostgreSQL은 user identity persistence 후보이다.
 - migration 기반 운영을 전제로 한다.
-- migration 도구는 PostgreSQL migration strategy에서 결정한다.
+- migration 도구는 Prisma를 사용한다.
+- DB schema 변경은 Prisma migration으로만 관리한다.
+- Raw SQL 기반 schema 변경은 사용하지 않는다.
 - Auth vertical slice에서 필요한 schema는 최소화한다.
 - domain별 schema 분리 가능성은 보존하되, Stage 1에서 과도하게 분리하지 않는다.
 
@@ -114,7 +117,6 @@ Backend scaffold는 다음이 준비된 뒤 생성할 수 있습니다.
 - NestJS package manager와 workspace tooling.
 - ORM 또는 query builder 선택.
 - Session middleware vs guard 구조.
-- Cookie vs header session transport.
 - Password hashing algorithm.
 - Validation library.
 

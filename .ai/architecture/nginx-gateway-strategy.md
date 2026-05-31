@@ -6,7 +6,7 @@
 - Artifact type: infrastructure strategy.
 - Owning team: Infrastructure Team.
 - Owning domain: Infrastructure.
-- Status: draft.
+- Status: approved draft.
 - Related backlog: S1-008 NGINX Gateway Strategy.
 - Related PR: TBD.
 - Last updated: 2026-05-26.
@@ -21,6 +21,7 @@
 - Auth gateway, rate limiting, service mesh 역할은 future consideration이다.
 - Frontend serving 여부는 Stage 2 scaffold readiness에서 결정한다.
 - kind local environment와의 관계는 local infrastructure strategy와 함께 검토한다.
+- Auth API routing prefix는 `/api/auth`로 둔다.
 
 ## 초기 역할 후보
 
@@ -45,14 +46,14 @@ Stage 1에서 확정하지 않는 역할:
 
 ```text
 /          -> frontend
-/api/*     -> backend
-/auth/*    -> backend auth endpoints
+/api/*        -> backend
+/api/auth/*   -> backend auth endpoints
 ```
 
 주의:
 
-- 실제 routing path는 frontend/backend scaffold plan과 함께 확정한다.
-- Auth API contract endpoint path와 충돌하지 않아야 한다.
+- Auth API contract는 `/api/auth/*` prefix를 따른다.
+- Frontend/backend scaffold plan은 이 prefix를 기준으로 작성한다.
 
 ## Ingress 관계
 
@@ -89,5 +90,6 @@ NGINX scaffold planning은 다음이 준비된 뒤 진행합니다.
 - NGINX를 ingress controller로 사용할지.
 - Local TLS 필요 여부.
 - Frontend static serving 방식.
-- `/api` prefix 사용 여부.
-- Auth endpoint prefix와 backend global prefix.
+- NGINX를 ingress controller로 사용할지.
+- Local TLS 필요 여부.
+- Frontend static serving 방식.
