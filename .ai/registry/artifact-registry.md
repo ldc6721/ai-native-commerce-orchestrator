@@ -1,4 +1,4 @@
-# Artifact Registry
+﻿# Artifact Registry
 
 ## 목적
 
@@ -19,6 +19,15 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/stage-roadmap.md` | Roadmap | PM / Orchestrator | active | Stage별 목표와 다음 작업 순서 정의. |
 | `.ai/stage-1-architecture-planning-backlog.md` | Backlog | PM / Orchestrator | active | Stage 1 architecture planning 작업 목록과 실행 순서. |
 | `.ai/stage-1-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 1 완료 조건별 evidence와 Stage 2 진입 판단. |
+| `.ai/stage-2-scaffold-readiness-backlog.md` | Backlog | PM / Orchestrator | active | Stage 2 scaffold readiness 작업 목록과 실행 순서. |
+| `.ai/stage-2-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 2A 완료 조건별 evidence와 Stage 2B 진입 판단. |
+| `.ai/scaffold/backend-scaffold-plan.md` | Scaffold plan | Backend Platform Team | active | Backend scaffold 허용 범위, 금지 범위, validation 기준. |
+| `.ai/scaffold/frontend-scaffold-plan.md` | Scaffold plan | Frontend Team | active | Frontend scaffold 허용 범위, 금지 범위, validation 기준. |
+| `.ai/scaffold/infrastructure-scaffold-plan.md` | Scaffold plan | Infrastructure Team | active | Infrastructure scaffold 허용 범위, 금지 범위, validation 기준. |
+| `.ai/scaffold/local-environment-validation-plan.md` | Validation plan | Infrastructure Team | active | Local kind/external dependency/scaffold validation 기준. |
+| `.ai/scaffold/ci-validation-plan.md` | Validation plan | Platform Team | active | Scaffold PR CI validation 후보와 범위 기준. |
+| `.ai/scaffold/stage-2-phase-policy.md` | Scaffold policy | PM / Orchestrator | active | Stage 2A planning과 Stage 2B execution 경계 기준. |
+| `.ai/scaffold/scaffold-pr-plan.md` | PR plan | PM / Orchestrator | active | Scaffold PR 단위, 순서, merge gate, forbidden scope 기준. |
 | `.ai/architecture/monorepo-structure-decision.md` | Architecture decision | PM / Orchestrator | active | Stage 2 scaffold를 위한 repository top-level 구조 결정. |
 | `.ai/architecture/backend-architecture-plan.md` | Architecture plan | Backend Platform Team | approved draft | NestJS backend boundary와 Auth session 중심 backend 계획. |
 | `.ai/architecture/frontend-architecture-plan.md` | Architecture plan | Frontend Team | approved draft | React frontend feature boundary와 Auth integration 계획. |
