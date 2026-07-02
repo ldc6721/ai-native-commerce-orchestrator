@@ -21,6 +21,7 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/stage-1-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 1 완료 조건별 evidence와 Stage 2 진입 판단. |
 | `.ai/stage-2-scaffold-readiness-backlog.md` | Backlog | PM / Orchestrator | active | Stage 2 scaffold readiness 작업 목록과 실행 순서. |
 | `.ai/stage-2-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 2A 완료 조건별 evidence와 Stage 2B 진입 판단. |
+| `.ai/stage-2b-pr-001-infrastructure-base-scaffold-review.md` | Scaffold execution review | Infrastructure Team | active | Stage 2B PR-001 infrastructure base scaffold 범위와 validation evidence. |
 | `.ai/scaffold/backend-scaffold-plan.md` | Scaffold plan | Backend Platform Team | active | Backend scaffold 허용 범위, 금지 범위, validation 기준. |
 | `.ai/scaffold/frontend-scaffold-plan.md` | Scaffold plan | Frontend Team | active | Frontend scaffold 허용 범위, 금지 범위, validation 기준. |
 | `.ai/scaffold/infrastructure-scaffold-plan.md` | Scaffold plan | Infrastructure Team | active | Infrastructure scaffold 허용 범위, 금지 범위, validation 기준. |

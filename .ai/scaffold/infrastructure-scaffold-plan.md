@@ -252,11 +252,20 @@ QA가 확인할 수 있는 것:
 
 ## Open Questions For Stage 2 Validation
 
-- kind cluster name.
-- kind node topology.
-- port mapping.
-- external PostgreSQL container name and port.
-- external Redis container name and port.
+Resolved by Stage 2B PR-001:
+
+- kind cluster name: `ai-commerce-local`.
+- kind node topology: single control-plane.
+- port mapping:
+  - host `8080` to cluster port `80`.
+  - host `8443` to cluster port `443`.
+- external PostgreSQL port: `5432`.
+- external Redis port: `6379`.
+
+Still open:
+
+- external PostgreSQL container name.
+- external Redis container name.
 - local reset strategy.
 - whether CI should run kind validation.
 
