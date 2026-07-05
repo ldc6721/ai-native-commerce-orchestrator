@@ -28,12 +28,20 @@
 - Scaffold 방식은 Nest CLI 기반 기본 구조를 사용한다.
 - Package manager는 `npm`을 사용한다.
 - Stage 2 backend scaffold 후보 위치는 `apps/backend`이다.
+- Stage 2B PR-002 scaffold는 `@nestjs/platform-fastify`를 사용한다.
 - Auth directory는 Stage 2에서 생성할 수 있다.
 - Auth 구현은 Stage 2에서 금지한다.
 - Prisma `schema.prisma` 생성은 Stage 2 scaffold에서 허용한다.
 - Prisma migration 생성은 Stage 2에서 금지한다.
 - Prisma model 생성은 Stage 2에서 금지한다.
 - Health endpoint는 scaffold validation을 위해 허용한다.
+
+## Stage 2B PR-002 결정
+
+- HTTP adapter는 `@nestjs/platform-fastify`를 사용한다.
+- `@nestjs/platform-express`는 scaffold validation 중 transitive `multer` audit finding을 만들었으므로 사용하지 않는다.
+- 현재 scaffold는 file upload 또는 Express-specific API가 필요하지 않다.
+- 이 결정은 scaffold platform decision이며 domain behavior를 포함하지 않는다.
 
 ## Stage 2 Backend Scaffold 허용 범위
 

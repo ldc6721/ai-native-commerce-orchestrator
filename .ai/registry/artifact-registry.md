@@ -21,6 +21,16 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/stage-1-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 1 완료 조건별 evidence와 Stage 2 진입 판단. |
 | `.ai/stage-2-scaffold-readiness-backlog.md` | Backlog | PM / Orchestrator | active | Stage 2 scaffold readiness 작업 목록과 실행 순서. |
 | `.ai/stage-2-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 2A 완료 조건별 evidence와 Stage 2B 진입 판단. |
+| `.ai/stage-2b-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 2B Scaffold Execution 완료 조건별 evidence와 Stage 3 진입 판단. |
+| `.ai/stage-3-auth-first-implementation-plan.md` | Implementation plan | PM / Orchestrator | active | Stage 3 첫 vertical slice인 Auth backend session foundation의 범위, 결정, PR 계획. |
+| `.ai/stage-3-pr-002-auth-backend-foundation-review.md` | Implementation review | Auth Team | active | Stage 3 Auth backend session foundation 구현 범위와 validation evidence. |
+| `.ai/stage-3-pr-003-auth-qa-integration-review.md` | QA and integration review | QA Team | active | Stage 3 Auth backend session foundation의 live dependency 및 HTTP flow QA evidence. |
+| `.ai/stage-3-auth-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 3 Auth backend vertical slice 완료 조건별 evidence와 다음 작업 판단. |
+| `.ai/stage-2b-pr-001-infrastructure-base-scaffold-review.md` | Scaffold execution review | Infrastructure Team | active | Stage 2B PR-001 infrastructure base scaffold 범위와 validation evidence. |
+| `.ai/stage-2b-pr-002-backend-scaffold-review.md` | Scaffold execution review | Backend Platform Team | active | Stage 2B PR-002 backend scaffold 범위와 validation evidence. |
+| `.ai/stage-2b-pr-003-frontend-scaffold-review.md` | Scaffold execution review | Frontend Team | active | Stage 2B PR-003 frontend scaffold 범위와 validation evidence. |
+| `.ai/stage-2b-pr-004-local-validation-docs-review.md` | Scaffold execution review | Infrastructure Team | active | Stage 2B PR-004 local validation docs 범위와 validation evidence. |
+| `.ai/stage-2b-pr-005-ci-validation-scaffold-review.md` | Scaffold execution review | Platform Team | active | Stage 2B PR-005 CI validation scaffold 범위와 validation evidence. |
 | `.ai/scaffold/backend-scaffold-plan.md` | Scaffold plan | Backend Platform Team | active | Backend scaffold 허용 범위, 금지 범위, validation 기준. |
 | `.ai/scaffold/frontend-scaffold-plan.md` | Scaffold plan | Frontend Team | active | Frontend scaffold 허용 범위, 금지 범위, validation 기준. |
 | `.ai/scaffold/infrastructure-scaffold-plan.md` | Scaffold plan | Infrastructure Team | active | Infrastructure scaffold 허용 범위, 금지 범위, validation 기준. |
@@ -51,8 +61,8 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/agents/qa-team.md` | Agent | QA Team | active | QA 역할과 failure 처리 기준. |
 | `.ai/agents/minimum-operating-loops.md` | Agent workflow | PM / Orchestrator | active | Agent별 최소 운영 루프. |
 | `.ai/domains/domain-ownership.md` | Ownership | PM / Orchestrator | active | 초기 domain owner와 boundary. |
-| `.ai/domains/auth/auth-domain-contract.md` | Domain contract | Auth Team | approved draft | Auth domain 책임, 경계, session expectation. |
-| `.ai/domains/auth/auth-api-contract.md` | API contract | Auth Team | approved draft | Auth first vertical slice API boundary. |
+| `.ai/domains/auth/auth-domain-contract.md` | Domain contract | Auth Team | active | Auth domain 책임, 경계, session expectation. |
+| `.ai/domains/auth/auth-api-contract.md` | API contract | Auth Team | active | Auth first vertical slice API boundary. |
 | `.ai/policies/architecture-policy.md` | Policy | PM / Orchestrator | active | Architecture 원칙과 boundary rule. |
 | `.ai/policies/testing-policy.md` | Policy | QA Team | active | Test와 validation 기대치. |
 | `.ai/policies/contract-artifact-policy.md` | Policy | PM / Orchestrator | active | Contract를 package가 아닌 domain-owned artifact로 관리하는 기준. |
