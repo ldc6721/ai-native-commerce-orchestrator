@@ -91,7 +91,9 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 - CI validation plan.
 - Local environment validation plan.
 - Scaffold PR plan.
-- Stage 2 completion review.
+- Stage 2A completion review.
+- Stage 2B scaffold execution reviews.
+- Stage 2B completion review.
 
 ### 완료 조건
 

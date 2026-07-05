@@ -241,6 +241,7 @@ Result:
 - Artifact created: `.ai/stage-2-completion-review.md`.
 - Stage 2A Scaffold Readiness Planning 완료로 판단했다.
 - Stage 2B Scaffold Execution은 PR-001 Infrastructure base scaffold부터 시작하도록 권고했다.
+- Stage 2B Scaffold Execution completion evidence는 `.ai/stage-2b-completion-review.md`에 기록했다.
 
 ## 실행 순서
 
