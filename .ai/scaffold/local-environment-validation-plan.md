@@ -139,10 +139,10 @@ Expected result:
 
 Resolved by Stage 2B PR-004:
 
-- PostgreSQL container name: i-commerce-postgres.
+- PostgreSQL container name: ai-commerce-postgres.
 - PostgreSQL port: 5432.
-- database name: i_commerce.
-- local username: i_commerce.
+- database name: ai_commerce.
+- local username: ai_commerce.
 - password: local-only value supplied by the developer.
 - reset command: manual docker stop and docker rm commands documented in docs/local-validation/README.md.
 
@@ -174,7 +174,7 @@ Expected result:
 
 Resolved by Stage 2B PR-004:
 
-- Redis container name: i-commerce-redis.
+- Redis container name: ai-commerce-redis.
 - Redis port: 6379.
 - local reset command: manual docker stop and docker rm commands documented in docs/local-validation/README.md.
 - Redis persistence mode: disabled for scaffold validation.
