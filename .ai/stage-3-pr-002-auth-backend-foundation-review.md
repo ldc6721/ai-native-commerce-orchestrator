@@ -77,7 +77,7 @@ Contract confirmations:
 - `/api/auth/session` can return anonymous state without an error.
 - `/api/auth/me` requires an authenticated session.
 
-## Validation Evidence
+## Automated Validation Evidence
 
 Validation was executed from a clean Windows temp copy of `apps/backend` to avoid WSL Node.js 12 and UNC native-module issues.
 
@@ -100,12 +100,56 @@ lint: pass
 high severity audit: pass
 ```
 
+## Live Dependency Validation Evidence
+
+Live dependency validation was executed with external local Docker containers:
+
+```text
+ai-commerce-postgres -> postgres:16, localhost:5432
+ai-commerce-redis -> redis:7, localhost:6379
+```
+
+PostgreSQL validation commands:
+
+```text
+npm ci
+npm exec prisma migrate deploy
+```
+
+PostgreSQL result:
+
+```text
+1 migration found in prisma/migrations
+Applying migration `20260705000000_init_auth_user`
+All migrations have been successfully applied.
+```
+
+PostgreSQL verification:
+
+```text
+public tables: _prisma_migrations, users
+migration applied: 20260705000000_init_auth_user
+```
+
+Redis validation command:
+
+```text
+node -e "RedisSessionStore create/find/delete smoke check"
+```
+
+Redis result:
+
+```text
+REDIS_SESSION_STORE_PASS
+redis-cli ping: PONG
+remaining auth:session:* keys after delete: none
+```
+
 ## Known Validation Gaps
 
-- Prisma migration execution against local PostgreSQL was not run in this PR.
-- Redis integration behavior was not run against a live Redis instance in this PR.
 - Browser E2E was not run because frontend Auth UI is out of scope.
 - kind cluster validation remains outside this Auth backend slice.
+- Full login flow validation through a running HTTP server is deferred until seeded user and frontend/API integration work.
 
 ## Risk Review
 
@@ -117,13 +161,11 @@ Risk mitigations:
 - Password hashing is delegated to Argon2 verification.
 - Session store is abstracted and tested through behavior.
 - API response shape tests ensure credential metadata is not returned.
-- Redis/PostgreSQL live integration gaps are explicitly deferred rather than claimed.
+- Prisma migration was applied successfully against live local PostgreSQL.
+- Redis session create/find/delete was verified against live local Redis.
 
 ## Completion Decision
 
-Stage 3 PR-002 Auth Backend Session Foundation is ready for draft PR review.
+Stage 3 PR-002 Auth Backend Session Foundation is ready for draft PR review with live PostgreSQL and Redis validation evidence included.
 
-It should remain draft until:
-
-- Stage 3 PR-001 readiness/contract finalization is reviewed.
-- Reviewers accept the Redis/PostgreSQL live validation gap as deferred work or request a local integration validation follow-up before merge.
+It should remain draft until Stage 3 PR-001 readiness/contract finalization is reviewed.
