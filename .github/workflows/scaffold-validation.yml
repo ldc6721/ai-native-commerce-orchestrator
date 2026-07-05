@@ -1,0 +1,135 @@
+name: Scaffold Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backend-scaffold:
+    name: Backend Scaffold
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/backend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/backend/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Audit
+        run: npm audit --audit-level=high
+
+  frontend-scaffold:
+    name: Frontend Scaffold
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/frontend/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Audit
+        run: npm audit --audit-level=high
+
+  infrastructure-scaffold:
+    name: Infrastructure Scaffold
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify kind config exists
+        run: test -f infra/kind/cluster-config.yaml
+
+      - name: Verify no Kubernetes application manifests
+        run: |
+          disallowed="$(find infra/kubernetes -type f ! -name README.md -print)"
+          if [ -n "$disallowed" ]; then
+            echo "$disallowed"
+            exit 1
+          fi
+
+      - name: Verify no Docker Compose file
+        run: |
+          disallowed="$(find . -type f \( -name 'compose.yml' -o -name 'docker-compose.yml' -o -name 'docker-compose.yaml' \) -print)"
+          if [ -n "$disallowed" ]; then
+            echo "$disallowed"
+            exit 1
+          fi
+
+      - name: Verify no executable local scripts
+        run: |
+          disallowed="$(find infra scripts docs -type f \( -name '*.sh' -o -name '*.ps1' -o -name '*.bat' \) -print 2>/dev/null || true)"
+          if [ -n "$disallowed" ]; then
+            echo "$disallowed"
+            exit 1
+          fi
+
+  artifact-consistency:
+    name: Artifact Consistency
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify Stage 2B review artifacts are registered
+        run: |
+          grep -F ".ai/stage-2b-pr-001-infrastructure-base-scaffold-review.md" .ai/registry/artifact-registry.md
+          grep -F ".ai/stage-2b-pr-002-backend-scaffold-review.md" .ai/registry/artifact-registry.md
+          grep -F ".ai/stage-2b-pr-003-frontend-scaffold-review.md" .ai/registry/artifact-registry.md
+          grep -F ".ai/stage-2b-pr-004-local-validation-docs-review.md" .ai/registry/artifact-registry.md
+          grep -F ".ai/stage-2b-pr-005-ci-validation-scaffold-review.md" .ai/registry/artifact-registry.md
+
+      - name: Verify forbidden shared packages are absent
+        run: |
+          test ! -d packages/shared-utils
+          test ! -d packages/shared-types
+          test ! -d packages/api-contracts
+
+      - name: Verify generated contract packages are absent
+        run: |
+          test ! -d packages/generated
+          test ! -d packages/openapi
