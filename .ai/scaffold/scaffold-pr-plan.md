@@ -342,10 +342,17 @@ Actual scaffold file creation may begin only after PM / Orchestrator confirms th
 
 ## Open Questions
 
-- Whether PR-001 and PR-004 should be combined or separate.
-- Whether CI workflow should be created before or after actual scaffold PRs.
-- Whether artifact consistency validation should be automated or manual.
-- Whether kind validation should run in CI.
+Resolved by Stage 2B execution:
+
+- PR-001 and PR-004 are separate PR units.
+- CI workflow is created after infrastructure, backend, frontend, and local validation docs scaffolds.
+- Artifact consistency starts as basic automated CI shell checks.
+- kind cluster creation does not run in Stage 2B CI.
+
+Still open for later stages:
+
+- Whether kind cluster creation should be added to CI after infrastructure approval.
+- Whether artifact consistency should become a dedicated validation tool.
 
 These questions do not block Stage 2 planning, but must be resolved before actual scaffold PR execution.
 
