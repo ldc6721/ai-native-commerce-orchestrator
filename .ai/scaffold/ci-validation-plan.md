@@ -45,11 +45,10 @@ CI validation은 다음을 확인합니다.
 
 ## CI Workflow 생성 정책
 
-Stage 2 plan 단계에서는 실제 CI workflow file을 생성하지 않습니다.
+Stage 2A plan 단계에서는 실제 CI workflow file을 생성하지 않습니다. Stage 2B PR-005에서는 scaffold validation workflow file 생성을 허용합니다.
 
 금지:
 
-- `.github/workflows/*` 생성.
 - CI script 생성.
 - package install 자동화 script 생성.
 - Docker Compose 기반 CI path 생성.
@@ -57,6 +56,15 @@ Stage 2 plan 단계에서는 실제 CI workflow file을 생성하지 않습니�
 
 CI workflow file은 Scaffold PR Plan 이후 별도 PR에서 생성합니다.
 
+## Stage 2B PR-005 결정
+
+- CI provider는 GitHub Actions를 사용한다.
+- Workflow file은 `.github/workflows/scaffold-validation.yml` 하나로 시작한다.
+- Backend, frontend, infrastructure, artifact consistency를 별도 job으로 분리한다.
+- Node.js version은 `22`를 사용한다.
+- kind cluster creation은 Stage 2B CI에서 실행하지 않는다.
+- CI는 kind config 존재와 forbidden manifest 부재만 검증한다.
+- Auth E2E, deployment, migration, Redis session behavior validation은 포함하지 않는다.
 ## Backend CI 후보
 
 Backend scaffold PR은 다음 후보 command를 CI에서 실행할 수 있어야 합니다.
@@ -229,11 +237,19 @@ QA는 다음을 확인합니다.
 
 ## Open Questions For Scaffold PR Plan
 
-- CI workflow를 backend/frontend/infra 별도 파일로 나눌지.
-- GitHub Actions를 사용할지.
-- kind validation을 CI에서 실제로 실행할지.
-- artifact consistency를 자동화할지 수동 review로 둘지.
-- dependency cache policy.
+Resolved by Stage 2B PR-005:
+
+- CI workflow file: single GitHub Actions workflow file.
+- CI provider: GitHub Actions.
+- kind validation in CI: do not create a kind cluster in Stage 2B CI.
+- artifact consistency: basic automated shell checks in CI.
+- dependency cache policy: npm cache via `ctions/setup-node` per package lockfile.
+
+Still open for later stages:
+
+- Whether to split workflow files when CI grows.
+- Whether to add kind cluster creation in CI after infrastructure approval.
+- Whether to replace shell artifact checks with a dedicated validation tool.
 
 ## Completion Criteria
 

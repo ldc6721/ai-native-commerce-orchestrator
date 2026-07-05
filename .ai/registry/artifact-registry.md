@@ -25,6 +25,7 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/stage-2b-pr-002-backend-scaffold-review.md` | Scaffold execution review | Backend Platform Team | active | Stage 2B PR-002 backend scaffold 범위와 validation evidence. |
 | `.ai/stage-2b-pr-003-frontend-scaffold-review.md` | Scaffold execution review | Frontend Team | active | Stage 2B PR-003 frontend scaffold 범위와 validation evidence. |
 | `.ai/stage-2b-pr-004-local-validation-docs-review.md` | Scaffold execution review | Infrastructure Team | active | Stage 2B PR-004 local validation docs 범위와 validation evidence. |
+| `.ai/stage-2b-pr-005-ci-validation-scaffold-review.md` | Scaffold execution review | Platform Team | active | Stage 2B PR-005 CI validation scaffold 범위와 validation evidence. |
 | `.ai/scaffold/backend-scaffold-plan.md` | Scaffold plan | Backend Platform Team | active | Backend scaffold 허용 범위, 금지 범위, validation 기준. |
 | `.ai/scaffold/frontend-scaffold-plan.md` | Scaffold plan | Frontend Team | active | Frontend scaffold 허용 범위, 금지 범위, validation 기준. |
 | `.ai/scaffold/infrastructure-scaffold-plan.md` | Scaffold plan | Infrastructure Team | active | Infrastructure scaffold 허용 범위, 금지 범위, validation 기준. |
