@@ -136,12 +136,11 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 
 ## 지금 먼저 해야 할 일
 
-현재는 Stage 2A Scaffold Readiness Planning이 완료되었습니다. 다음 우선순위는 Stage 2B Scaffold Execution입니다.
+현재는 Stage 2B Scaffold Execution이 완료되었습니다. 다음 우선순위는 Stage 3 Auth First Implementation입니다.
 
-1. PR-001 Infrastructure base scaffold를 준비한다.
-2. PR-002 Backend scaffold를 준비한다.
-3. PR-003 Frontend scaffold를 준비한다.
-4. PR-004 Local validation docs를 준비한다.
-5. PR-005 CI validation scaffold를 준비한다.
+1. Auth contract를 Stage 3 구현 기준으로 active 상태로 정리한다.
+2. Auth backend session foundation을 가장 작은 vertical slice로 구현한다.
+3. Auth QA scenario와 validation evidence를 기록한다.
+4. Redis/PostgreSQL 실제 local integration gap을 별도 후속 작업으로 추적한다.
 
-각 PR은 `.ai/scaffold/scaffold-pr-plan.md`와 `.ai/scaffold/stage-2-phase-policy.md`를 따라야 합니다.
+각 PR은 `.ai/stage-3-auth-first-implementation-plan.md`, `.ai/workflows/pr-workflow.md`, `.ai/policies/definition-of-ready.md`, `.ai/policies/definition-of-done.md`를 따라야 합니다.

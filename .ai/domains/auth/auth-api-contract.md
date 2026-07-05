@@ -6,10 +6,10 @@
 - Artifact type: API contract.
 - Owning team: Auth Team.
 - Owning domain: Auth.
-- Status: approved draft.
+- Status: active.
 - Related backlog: S1-002 Auth Domain Contract Plan.
 - Related PR: TBD.
-- Last updated: 2026-05-26.
+- Last updated: 2026-07-05.
 
 ## 목적
 
@@ -39,6 +39,11 @@ Out of scope:
 - Session transport is cookie-based.
 - Session storage is expected to be server-side and Redis-backed.
 - API implementation must follow this document, not a shared generated package.
+- Auth session cookie name is `sid`.
+- Auth session cookie is `HttpOnly`.
+- Auth session cookie uses `SameSite=Lax`.
+- Initial session TTL is 7 days.
+- Initial session expiration is fixed, not rolling.
 
 ## Data Shapes
 
@@ -88,6 +93,18 @@ Initial error codes:
 - `AUTH_SESSION_EXPIRED`
 - `AUTH_LOGOUT_FAILED`
 - `AUTH_UNEXPECTED_ERROR`
+- `AUTH_INVALID_REQUEST`
+
+## HTTP Status Codes
+
+- Login success: `200`.
+- Logout success: `200`.
+- Session status success, including anonymous state: `200`.
+- Current user success: `200`.
+- Invalid credentials: `401`.
+- Missing or expired session for `/api/auth/me`: `401`.
+- Invalid request body: `400`.
+- Unexpected server error: `500`.
 
 ## Endpoint Contracts
 
@@ -104,6 +121,11 @@ LoginRequest:
   email: string
   password: string
 ```
+
+Validation:
+
+- `email` must be a syntactically valid email string.
+- `password` must be a non-empty string with at least 8 characters.
 
 Success response:
 
@@ -237,15 +259,15 @@ Expected behavior:
 - Logout invalidates authenticated session.
 - Repeated logout does not create inconsistent frontend state.
 
-## Open Questions
+## Stage 3 Decisions
 
-- CSRF protection model.
-- Exact HTTP status codes.
-- Session TTL.
-- Account disabled or locked behavior.
-- Rate limiting and brute-force protection.
+Resolved for Stage 3 Auth backend session foundation:
 
-These are intentionally deferred to backend architecture, Redis strategy, NGINX gateway strategy, and security review.
+- CSRF baseline uses `SameSite=Lax`; explicit CSRF token is deferred.
+- HTTP status codes are defined in this artifact.
+- Session TTL is 7 days.
+- Account disabled or locked behavior is deferred.
+- Rate limiting and brute-force protection are deferred.
 
 ## Change Control
 
