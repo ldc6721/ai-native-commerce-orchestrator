@@ -23,6 +23,9 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/stage-2-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 2A 완료 조건별 evidence와 Stage 2B 진입 판단. |
 | `.ai/stage-2b-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 2B Scaffold Execution 완료 조건별 evidence와 Stage 3 진입 판단. |
 | `.ai/stage-3-auth-first-implementation-plan.md` | Implementation plan | PM / Orchestrator | active | Stage 3 첫 vertical slice인 Auth backend session foundation의 범위, 결정, PR 계획. |
+| `.ai/stage-3-pr-002-auth-backend-foundation-review.md` | Implementation review | Auth Team | active | Stage 3 Auth backend session foundation 구현 범위와 validation evidence. |
+| `.ai/stage-3-pr-003-auth-qa-integration-review.md` | QA and integration review | QA Team | active | Stage 3 Auth backend session foundation의 live dependency 및 HTTP flow QA evidence. |
+| `.ai/stage-3-auth-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 3 Auth backend vertical slice 완료 조건별 evidence와 다음 작업 판단. |
 | `.ai/stage-2b-pr-001-infrastructure-base-scaffold-review.md` | Scaffold execution review | Infrastructure Team | active | Stage 2B PR-001 infrastructure base scaffold 범위와 validation evidence. |
 | `.ai/stage-2b-pr-002-backend-scaffold-review.md` | Scaffold execution review | Backend Platform Team | active | Stage 2B PR-002 backend scaffold 범위와 validation evidence. |
 | `.ai/stage-2b-pr-003-frontend-scaffold-review.md` | Scaffold execution review | Frontend Team | active | Stage 2B PR-003 frontend scaffold 범위와 validation evidence. |

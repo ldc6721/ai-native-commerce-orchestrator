@@ -129,10 +129,7 @@ jobs:
           test ! -d packages/shared-types
           test ! -d packages/api-contracts
 
-      - name: Verify Auth implementation is not present
+      - name: Verify generated contract packages are absent
         run: |
-          test ! -f apps/backend/src/auth/auth.controller.ts
-          test ! -f apps/backend/src/auth/auth.service.ts
-          test ! -f apps/backend/src/auth/auth.module.ts
-          test ! -f apps/frontend/src/features/auth/authApi.ts
-          test ! -f apps/frontend/src/features/auth/useSession.ts
+          test ! -d packages/generated
+          test ! -d packages/openapi

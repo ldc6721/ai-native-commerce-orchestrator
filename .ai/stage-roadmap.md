@@ -136,7 +136,7 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 
 ## 지금 먼저 해야 할 일
 
-현재는 Stage 2B Scaffold Execution이 완료되었습니다. 다음 우선순위는 Stage 3 Auth First Implementation입니다.
+현재는 Stage 3 Auth backend session foundation completion review까지 작성되었습니다. 다음 우선순위는 Stage 2B/Stage 3 PR stack review와 Auth frontend integration planning입니다.
 
 1. Auth contract를 Stage 3 구현 기준으로 active 상태로 정리한다.
 2. Auth backend session foundation을 가장 작은 vertical slice로 구현한다.
