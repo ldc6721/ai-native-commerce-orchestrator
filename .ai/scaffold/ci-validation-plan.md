@@ -243,7 +243,7 @@ Resolved by Stage 2B PR-005:
 - CI provider: GitHub Actions.
 - kind validation in CI: do not create a kind cluster in Stage 2B CI.
 - artifact consistency: basic automated shell checks in CI.
-- dependency cache policy: npm cache via `ctions/setup-node` per package lockfile.
+- dependency cache policy: npm cache via `actions/setup-node` per package lockfile.
 
 Still open for later stages:
 

@@ -6,10 +6,10 @@
 - Artifact type: domain contract.
 - Owning team: Auth Team.
 - Owning domain: Auth.
-- Status: approved draft.
+- Status: active.
 - Related backlog: S1-002 Auth Domain Contract Plan.
 - Related PR: TBD.
-- Last updated: 2026-05-26.
+- Last updated: 2026-07-05.
 
 ## 목적
 
@@ -64,6 +64,21 @@ Out of scope 항목은 후속 domain contract 또는 future issue에서 다룹�
 
 민감 정보는 API response나 frontend contract에 노출하지 않습니다.
 
+Stage 3 initial persisted user fields:
+
+- id.
+- email.
+- displayName.
+- passwordHash.
+- createdAt.
+- updatedAt.
+
+Deferred user fields:
+
+- email verification state.
+- disabled or locked account state.
+- role or permission fields.
+
 ### Session
 
 Session은 사용자가 login 이후 authenticated state를 유지하기 위한 server-side state입니다.
@@ -73,7 +88,8 @@ Session은 사용자가 login 이후 authenticated state를 유지하기 위한 
 - Redis-backed session을 전제로 한다.
 - Session transport는 cookie 기반으로 구성한다.
 - Session id는 cookie를 통해 client에 전달될 수 있지만 session payload의 source of truth는 server-side Redis store이다.
-- Session TTL은 Redis usage strategy에서 확정한다.
+- Session TTL is 7 days for the initial Stage 3 implementation.
+- The first implementation uses fixed expiration; rolling renewal is deferred.
 - Session invalidation은 logout과 expiration을 포함한다.
 
 ### Current User
@@ -163,15 +179,24 @@ Stage 3 validation:
 
 - Login/logout/current user behavior passes PR review and QA scenario.
 
-## Open Questions
+## Stage 3 Decisions
 
-- Session TTL value.
-- CSRF protection detail.
-- Password hashing algorithm.
-- User persistence model.
-- Error response detail level.
+The following questions are resolved for Stage 3 Auth backend session foundation:
 
-These questions are intentionally not finalized in this artifact. They must be resolved in Redis usage, backend architecture, PostgreSQL migration, and API contract planning artifacts.
+- Session transport: HTTP-only cookie.
+- Session TTL: 7 days.
+- Session expiration: fixed expiration.
+- CSRF baseline: `SameSite=Lax`; dedicated CSRF token deferred until frontend integration or production hardening.
+- Password hashing: Argon2id.
+- User persistence: Prisma-managed `User` model.
+- Error response detail: stable error code and safe message without credential detail.
+
+Remaining deferred decisions:
+
+- Account disabled or locked behavior.
+- Rate limiting and brute-force protection.
+- CSRF token implementation detail.
+- Role-based authorization.
 
 ## Change Control
 
