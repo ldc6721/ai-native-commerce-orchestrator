@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, Req, Res } from '@nestjs/common';
 import { FastifyReply, FastifyRequest } from 'fastify';
 import { AuthService } from './auth.service';
 import { LoginRequest } from './auth.types';
@@ -10,6 +10,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
+  @HttpCode(200)
   async login(
     @Body() request: LoginRequest,
     @Res({ passthrough: true }) reply: FastifyReply,
@@ -26,6 +27,7 @@ export class AuthController {
   }
 
   @Post('logout')
+  @HttpCode(200)
   async logout(
     @Req() request: FastifyRequest,
     @Res({ passthrough: true }) reply: FastifyReply,
