@@ -137,13 +137,14 @@ Expected result:
 - Stage 2에서 seed data 생성.
 - Raw SQL 사용.
 
-Open questions:
+Resolved by Stage 2B PR-004:
 
-- PostgreSQL container name.
-- PostgreSQL port.
-- database name.
-- local username/password convention.
-- reset command.
+- PostgreSQL container name: i-commerce-postgres.
+- PostgreSQL port: 5432.
+- database name: i_commerce.
+- local username: i_commerce.
+- password: local-only value supplied by the developer.
+- reset command: manual docker stop and docker rm commands documented in docs/local-validation/README.md.
 
 ## External Redis Validation
 
@@ -171,12 +172,12 @@ Expected result:
 - TTL policy implementation.
 - cache/queue/event usage.
 
-Open questions:
+Resolved by Stage 2B PR-004:
 
-- Redis container name.
-- Redis port.
-- local reset command.
-- Redis persistence mode.
+- Redis container name: i-commerce-redis.
+- Redis port: 6379.
+- local reset command: manual docker stop and docker rm commands documented in docs/local-validation/README.md.
+- Redis persistence mode: disabled for scaffold validation.
 
 ## Backend Scaffold Validation 후보
 
