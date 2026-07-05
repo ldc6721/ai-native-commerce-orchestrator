@@ -27,7 +27,7 @@ Current entry condition:
 
 - Stage 2B scaffold execution is complete.
 - Backend scaffold exists and passes scaffold validation.
-- Auth domain and API contracts exist as approved draft artifacts.
+- Auth domain and API contracts exist as active artifacts.
 - Auth is the selected first vertical slice.
 
 ## Selected Vertical Slice
