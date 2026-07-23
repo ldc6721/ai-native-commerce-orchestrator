@@ -1,4 +1,4 @@
-﻿# Stage 3 Auth Completion Review
+# Stage 3 Auth Completion Review
 
 ## Artifact Metadata
 
@@ -202,12 +202,12 @@ Evidence:
 
 - Auth backend flow is implemented across login, logout, session status, and current user.
 - QA review artifact records live dependency and HTTP flow validation.
-- Draft PR stack exists for review.
+- PR stack was reviewed and merged into `main`.
 
 Caveat:
 
-- PRs are still draft and not merged.
-- This review declares implementation readiness, not repository mainline completion.
+- PRs are now merged.
+- This review now records repository mainline completion for the backend-only Auth slice.
 
 ### Domain Ownership And Artifact Contract Applied
 
@@ -262,20 +262,20 @@ Completion status:
 - Live Redis validation: complete.
 - HTTP Auth flow validation: complete.
 - QA review: complete.
-- PR stack: draft and ready for human review.
+- PR stack: reviewed and merged into `main`.
 
-This does not mean the full Auth product experience is complete. It means the first backend Auth vertical slice has enough evidence to proceed to review and merge sequencing.
+This does not mean the full Auth product experience is complete. It means the first backend Auth vertical slice has been reviewed, validated, and merged into `main`.
 
 ## Recommended Next Work
 
 Recommended next sequence:
 
-1. Review and merge Stage 2B PR stack.
-2. Review and merge Stage 3 Auth PR stack.
-3. Start Auth frontend integration planning.
-4. Implement frontend Auth API client inside the Auth feature/domain boundary.
-5. Implement login UI and session bootstrap.
-6. Add browser E2E after frontend Auth UI exists.
+1. Start Auth frontend integration planning.
+2. Implement frontend Auth API client inside the Auth feature/domain boundary.
+3. Implement login UI and session bootstrap.
+4. Add logout action and protected route behavior.
+5. Add browser E2E after frontend Auth UI exists.
+6. Defer NGINX/kind runtime validation until gateway and Kubernetes application manifests exist.
 
 Recommended next artifact:
 

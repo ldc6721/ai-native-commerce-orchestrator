@@ -1,4 +1,4 @@
-﻿# Stage Roadmap
+# Stage Roadmap
 
 ## 목적
 
@@ -136,11 +136,12 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 
 ## 지금 먼저 해야 할 일
 
-현재는 Stage 3 Auth backend session foundation completion review까지 작성되었습니다. 다음 우선순위는 Stage 2B/Stage 3 PR stack review와 Auth frontend integration planning입니다.
+현재는 Stage 2B scaffold stack과 Stage 3 Auth backend session foundation stack이 main에 merge되었습니다. 다음 우선순위는 Auth frontend integration planning입니다.
 
-1. Auth contract를 Stage 3 구현 기준으로 active 상태로 정리한다.
-2. Auth backend session foundation을 가장 작은 vertical slice로 구현한다.
-3. Auth QA scenario와 validation evidence를 기록한다.
-4. Redis/PostgreSQL 실제 local integration gap을 별도 후속 작업으로 추적한다.
+1. Auth frontend integration plan을 작성한다.
+2. Frontend Auth feature/domain 내부 API client boundary를 정의한다.
+3. Login UI, session bootstrap, logout action, protected route 범위를 정한다.
+4. Browser E2E와 frontend/backend integration validation 기준을 정의한다.
+5. 계획 승인 후 frontend Auth integration PR stack으로 구현을 시작한다.
 
-각 PR은 `.ai/stage-3-auth-first-implementation-plan.md`, `.ai/workflows/pr-workflow.md`, `.ai/policies/definition-of-ready.md`, `.ai/policies/definition-of-done.md`를 따라야 합니다.
+각 PR은 `.ai/workflows/pr-workflow.md`, `.ai/policies/definition-of-ready.md`, `.ai/policies/definition-of-done.md`, `.ai/domains/auth/auth-api-contract.md`를 따라야 합니다.
