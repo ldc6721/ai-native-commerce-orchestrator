@@ -1,4 +1,4 @@
-﻿# Stage 3 PR-002 Auth Backend Session Foundation Review
+# Stage 3 PR-002 Auth Backend Session Foundation Review
 
 ## Artifact Metadata
 
@@ -166,6 +166,6 @@ Risk mitigations:
 
 ## Completion Decision
 
-Stage 3 PR-002 Auth Backend Session Foundation is ready for draft PR review with live PostgreSQL and Redis validation evidence included.
+Stage 3 PR-002 Auth Backend Session Foundation was reviewed and merged with live PostgreSQL and Redis validation evidence included.
 
-It should remain draft until Stage 3 PR-001 readiness/contract finalization is reviewed.
+Post-merge status: merged into `main` through the Stage 3 Auth PR stack.

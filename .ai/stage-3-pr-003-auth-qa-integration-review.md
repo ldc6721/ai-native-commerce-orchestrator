@@ -1,4 +1,4 @@
-﻿# Stage 3 PR-003 Auth QA And Integration Review
+# Stage 3 PR-003 Auth QA And Integration Review
 
 ## Artifact Metadata
 
@@ -161,4 +161,4 @@ Auth HTTP flow: pass
 
 Stage 3 Auth backend session foundation passes QA for the current backend-only vertical slice.
 
-The implementation is ready for reviewer evaluation as a draft PR stack after Stage 3 PR-001 readiness is accepted.
+Post-merge status: the implementation passed QA and was merged into `main` through the Stage 3 Auth PR stack.
