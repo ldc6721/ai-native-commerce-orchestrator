@@ -27,6 +27,7 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/stage-3-pr-003-auth-qa-integration-review.md` | QA and integration review | QA Team | active | Stage 3 Auth backend session foundation의 live dependency 및 HTTP flow QA evidence. |
 | `.ai/stage-3-auth-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 3 Auth backend vertical slice 완료 조건별 evidence와 다음 작업 판단. |
 | `.ai/stage-3-auth-frontend-integration-plan.md` | Implementation plan | Frontend Team | active | Auth frontend API 경계, 세션 상태, 사용자 흐름, 테스트 및 PR 순서. |
+| `.ai/stage-3-pr-006-routing-dependency-review.md` | 아키텍처 및 보안 리뷰 | 프론트엔드 팀 | active | PR-006 라우팅 의존성 선정, 보안 gate, 구현 경계 승인. |
 | `.ai/stage-2b-pr-001-infrastructure-base-scaffold-review.md` | Scaffold execution review | Infrastructure Team | active | Stage 2B PR-001 infrastructure base scaffold 범위와 validation evidence. |
 | `.ai/stage-2b-pr-002-backend-scaffold-review.md` | Scaffold execution review | Backend Platform Team | active | Stage 2B PR-002 backend scaffold 범위와 validation evidence. |
 | `.ai/stage-2b-pr-003-frontend-scaffold-review.md` | Scaffold execution review | Frontend Team | active | Stage 2B PR-003 frontend scaffold 범위와 validation evidence. |
