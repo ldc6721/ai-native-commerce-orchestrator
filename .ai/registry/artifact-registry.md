@@ -1,4 +1,4 @@
-﻿# Artifact Registry
+# Artifact Registry
 
 ## 목적
 
@@ -26,6 +26,7 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/stage-3-pr-002-auth-backend-foundation-review.md` | Implementation review | Auth Team | active | Stage 3 Auth backend session foundation 구현 범위와 validation evidence. |
 | `.ai/stage-3-pr-003-auth-qa-integration-review.md` | QA and integration review | QA Team | active | Stage 3 Auth backend session foundation의 live dependency 및 HTTP flow QA evidence. |
 | `.ai/stage-3-auth-completion-review.md` | Stage review | PM / Orchestrator | active | Stage 3 Auth backend vertical slice 완료 조건별 evidence와 다음 작업 판단. |
+| `.ai/stage-3-auth-frontend-integration-plan.md` | Implementation plan | Frontend Team | active | Auth frontend API 경계, 세션 상태, 사용자 흐름, 테스트 및 PR 순서. |
 | `.ai/stage-2b-pr-001-infrastructure-base-scaffold-review.md` | Scaffold execution review | Infrastructure Team | active | Stage 2B PR-001 infrastructure base scaffold 범위와 validation evidence. |
 | `.ai/stage-2b-pr-002-backend-scaffold-review.md` | Scaffold execution review | Backend Platform Team | active | Stage 2B PR-002 backend scaffold 범위와 validation evidence. |
 | `.ai/stage-2b-pr-003-frontend-scaffold-review.md` | Scaffold execution review | Frontend Team | active | Stage 2B PR-003 frontend scaffold 범위와 validation evidence. |
@@ -40,7 +41,7 @@ Artifact Registry는 `.ai` 아래에서 어떤 문서가 현재 source of truth�
 | `.ai/scaffold/scaffold-pr-plan.md` | PR plan | PM / Orchestrator | active | Scaffold PR 단위, 순서, merge gate, forbidden scope 기준. |
 | `.ai/architecture/monorepo-structure-decision.md` | Architecture decision | PM / Orchestrator | active | Stage 2 scaffold를 위한 repository top-level 구조 결정. |
 | `.ai/architecture/backend-architecture-plan.md` | Architecture plan | Backend Platform Team | approved draft | NestJS backend boundary와 Auth session 중심 backend 계획. |
-| `.ai/architecture/frontend-architecture-plan.md` | Architecture plan | Frontend Team | approved draft | React frontend feature boundary와 Auth integration 계획. |
+| `.ai/architecture/frontend-architecture-plan.md` | Architecture plan | Frontend Team | active | React frontend feature boundary와 Auth integration 기준. |
 | `.ai/architecture/local-infrastructure-strategy.md` | Infrastructure strategy | Infrastructure Team | approved draft | kind 기반 local infrastructure 방향. |
 | `.ai/architecture/postgresql-migration-strategy.md` | Architecture strategy | Backend Platform Team | approved draft | PostgreSQL migration 기반 운영 전략. |
 | `.ai/architecture/redis-usage-strategy.md` | Architecture strategy | Backend Platform Team | approved draft | Redis session management 중심 사용 전략. |

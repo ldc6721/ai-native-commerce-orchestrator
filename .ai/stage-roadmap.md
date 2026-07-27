@@ -136,12 +136,12 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 
 ## 지금 먼저 해야 할 일
 
-현재는 Stage 2B scaffold stack과 Stage 3 Auth backend session foundation stack이 main에 merge되었습니다. 다음 우선순위는 Auth frontend integration planning입니다.
+현재는 Stage 2B scaffold stack과 Stage 3 Auth backend session foundation stack이 main에 merge되었고, Auth frontend integration plan이 active 상태로 작성되었습니다. 다음 우선순위는 계획에 따른 frontend Auth integration PR stack 실행입니다.
 
-1. Auth frontend integration plan을 작성한다.
-2. Frontend Auth feature/domain 내부 API client boundary를 정의한다.
-3. Login UI, session bootstrap, logout action, protected route 범위를 정한다.
-4. Browser E2E와 frontend/backend integration validation 기준을 정의한다.
-5. 계획 승인 후 frontend Auth integration PR stack으로 구현을 시작한다.
+1. PR-004 Auth frontend integration plan을 review하고 merge한다.
+2. PR-005 Auth feature 내부 API client와 session state를 구현한다.
+3. PR-006 Login UI, logout action, protected route를 구현한다.
+4. PR-007 Browser E2E와 frontend/backend integration QA evidence를 기록한다.
+5. Auth frontend completion review로 Stage 3 Auth 전체 완료 여부를 판단한다.
 
-각 PR은 `.ai/workflows/pr-workflow.md`, `.ai/policies/definition-of-ready.md`, `.ai/policies/definition-of-done.md`, `.ai/domains/auth/auth-api-contract.md`를 따라야 합니다.
+각 PR은 `.ai/stage-3-auth-frontend-integration-plan.md`, `.ai/workflows/pr-workflow.md`, `.ai/policies/definition-of-ready.md`, `.ai/policies/definition-of-done.md`, `.ai/domains/auth/auth-api-contract.md`를 따라야 합니다.
