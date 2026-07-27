@@ -20,7 +20,7 @@
 - Stage 2B 프론트엔드 scaffold와 Auth 백엔드 세션 기반이 `main`에 병합되어 있다.
 - Auth 도메인 계약과 API 계약이 active 상태이다.
 - TanStack Query, React Hook Form, Zod, Tailwind CSS가 준비되어 있다.
-- 라우팅 라이브러리는 PR-006 진입 전에 보안 검토를 거쳐 별도로 확정한다.
+- PR-006 라우팅은 승인된 `@tanstack/react-router@1.170.18` 코드 기반 구성을 사용한다.
 - API client는 feature/domain 내부에서 소유하고 shared API client layer를 만들지 않는다.
 
 ## 목표 사용자 흐름
@@ -152,8 +152,8 @@ apps/frontend/src/
 
 - 2026-07-27 기준 현재 배포된 React Router 버전에는 high 등급 보안 권고가 남아 있어 scaffold 의존성에서 제거했다.
 - PR-005는 라우팅 라이브러리에 의존하지 않는다.
-- PR-006 진입 전 패치된 안정 버전 사용 또는 대체 라우터 선정을 review artifact로 승인해야 한다.
-- 선택한 라우팅 의존성은 `npm audit --audit-level=high`를 통과해야 한다.
+- 대체 라우터 결정은 `.ai/stage-3-pr-006-routing-dependency-review.md`에서 승인했다.
+- 승인 버전은 `npm audit --audit-level=high`에서 취약점 0건을 확인했다.
 
 ## 테스트 전략
 
@@ -200,7 +200,7 @@ npm run build
 
 ### PR-006 로그인 UI와 보호 라우트
 
-- 라우팅 의존성 보안 결정을 먼저 승인한다.
+- 승인된 TanStack Router 코드 기반 route tree를 사용한다.
 - 로그인 폼, `/login`, `/account`, protected route, logout action을 구현한다.
 - 컴포넌트 및 라우팅 테스트를 추가한다.
 - 브라우저 E2E와 infra 변경은 포함하지 않는다.
@@ -238,4 +238,4 @@ npm run build
 
 ## 다음 작업
 
-PR-005 Auth API client와 세션 상태를 구현하고 검증한다.
+PR-006 로그인 UI와 보호 라우트를 구현하고 검증한다.
