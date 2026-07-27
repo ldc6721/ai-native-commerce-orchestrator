@@ -8,7 +8,7 @@
 - 소유 도메인: 프론트엔드 셸
 - 상태: active
 - 관련 백로그: S1-004 프론트엔드 아키텍처 계획
-- 최종 갱신일: 2026-07-24
+- 최종 갱신일: 2026-07-27
 
 ## 목적
 
@@ -17,7 +17,7 @@
 ## 현재 기술 기준
 
 - 애플리케이션: Vite + React + TypeScript
-- 라우팅: React Router
+- 라우팅: PR-006 전에 보안 검토를 거쳐 패치 버전 또는 대체 라이브러리를 결정
 - 서버 상태: TanStack Query
 - 폼과 입력 검증: React Hook Form + Zod
 - 스타일링: Tailwind CSS
@@ -126,6 +126,7 @@ Auth feature가 소유하지 않는 책임:
 - 라우트 보호는 `loading`, `anonymous`, `authenticated`, `error` 상태를 구분한다.
 - 인증 오류를 익명 상태로 오인해 로그인 화면으로 강제 이동하지 않는다.
 - 내부 redirect 경로만 허용해 오픈 redirect를 막는다.
+- 취약점이 남은 라우팅 의존성은 도입하지 않으며 선택 결정은 review artifact로 남긴다.
 - Auth 세부 흐름은 `.ai/stage-3-auth-frontend-integration-plan.md`를 따른다.
 
 ## Review 기준

@@ -9,7 +9,7 @@
 - 상태: active
 - 관련 단계: Stage 3 - 첫 구현
 - 관련 계약: `.ai/domains/auth/auth-domain-contract.md`, `.ai/domains/auth/auth-api-contract.md`
-- 최종 갱신일: 2026-07-24
+- 최종 갱신일: 2026-07-27
 
 ## 목적
 
@@ -19,7 +19,8 @@
 
 - Stage 2B 프론트엔드 scaffold와 Auth 백엔드 세션 기반이 `main`에 병합되어 있다.
 - Auth 도메인 계약과 API 계약이 active 상태이다.
-- React Router, TanStack Query, React Hook Form, Zod, Tailwind CSS가 준비되어 있다.
+- TanStack Query, React Hook Form, Zod, Tailwind CSS가 준비되어 있다.
+- 라우팅 라이브러리는 PR-006 진입 전에 보안 검토를 거쳐 별도로 확정한다.
 - API client는 feature/domain 내부에서 소유하고 shared API client layer를 만들지 않는다.
 
 ## 목표 사용자 흐름
@@ -147,6 +148,13 @@ apps/frontend/src/
 - 전용 CSRF token은 이번 slice에 포함하지 않지만 cross-origin 배포 또는 production hardening 전에 필수 보안 gate로 재검토한다.
 - rate limiting, brute-force protection, account lockout은 백엔드 후속 보안 작업으로 유지한다.
 
+## 라우팅 의존성 보안 제약
+
+- 2026-07-27 기준 현재 배포된 React Router 버전에는 high 등급 보안 권고가 남아 있어 scaffold 의존성에서 제거했다.
+- PR-005는 라우팅 라이브러리에 의존하지 않는다.
+- PR-006 진입 전 패치된 안정 버전 사용 또는 대체 라우터 선정을 review artifact로 승인해야 한다.
+- 선택한 라우팅 의존성은 `npm audit --audit-level=high`를 통과해야 한다.
+
 ## 테스트 전략
 
 PR별 자동화 테스트:
@@ -192,6 +200,7 @@ npm run build
 
 ### PR-006 로그인 UI와 보호 라우트
 
+- 라우팅 의존성 보안 결정을 먼저 승인한다.
 - 로그인 폼, `/login`, `/account`, protected route, logout action을 구현한다.
 - 컴포넌트 및 라우팅 테스트를 추가한다.
 - 브라우저 E2E와 infra 변경은 포함하지 않는다.
@@ -229,4 +238,4 @@ npm run build
 
 ## 다음 작업
 
-PR-004 계획 리뷰 후 PR-005 Auth API client와 세션 상태 구현을 시작한다.
+PR-005 Auth API client와 세션 상태를 구현하고 검증한다.
