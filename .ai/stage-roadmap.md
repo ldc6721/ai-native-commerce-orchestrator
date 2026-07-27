@@ -136,12 +136,20 @@ AI Agent들이 같은 방식으로 일할 수 있는 최소 운영 체계를 만
 
 ## 지금 먼저 해야 할 일
 
-현재는 Stage 2B scaffold stack과 Stage 3 Auth backend session foundation stack이 main에 merge되었고, Auth frontend integration plan이 active 상태로 작성되었습니다. 다음 우선순위는 계획에 따른 frontend Auth integration PR stack 실행입니다.
+Stage 3 Auth 첫 vertical slice는 backend session foundation부터 frontend browser integration까지 구현과 QA를 완료했습니다.
 
-1. PR-004 Auth frontend integration plan을 review하고 merge한다.
-2. PR-005 Auth feature 내부 API client와 session state를 구현한다.
-3. PR-006 Login UI, logout action, protected route를 구현한다.
-4. PR-007 Browser E2E와 frontend/backend integration QA evidence를 기록한다.
-5. Auth frontend completion review로 Stage 3 Auth 전체 완료 여부를 판단한다.
+완료 증거:
 
-각 PR은 `.ai/stage-3-auth-frontend-integration-plan.md`, `.ai/workflows/pr-workflow.md`, `.ai/policies/definition-of-ready.md`, `.ai/policies/definition-of-done.md`, `.ai/domains/auth/auth-api-contract.md`를 따라야 합니다.
+- Auth domain/API contract가 실제 backend와 frontend 경계에 적용되었다.
+- PR-005 API client와 session state가 main에 병합되었다.
+- PR-006 로그인 UI, 로그아웃, 보호 라우트가 main에 병합되었다.
+- PR-007 PostgreSQL, Redis, backend, frontend, Chromium 통합 E2E가 통과했다.
+- 완료 판정은 `.ai/stage-3-auth-frontend-completion-review.md`가 소유한다.
+
+다음 우선순위:
+
+1. PR-007을 review하고 main에 병합한다.
+2. Stage 3 post-merge 상태와 repository clean 상태를 확인한다.
+3. Stage 4 Integration Hardening backlog를 작성한다.
+4. kind, NGINX, Kubernetes 배포 검증과 observability baseline의 순서를 결정한다.
+5. 다음 commerce domain 구현은 Stage 4 진입 기준과 domain 우선순위 승인 후 시작한다.

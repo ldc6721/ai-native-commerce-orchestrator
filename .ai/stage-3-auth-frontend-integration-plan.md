@@ -238,4 +238,4 @@ npm run build
 
 ## 다음 작업
 
-PR-006 로그인 UI와 보호 라우트를 구현하고 검증한다.
+PR-007 browser QA evidence와 완료 리뷰를 검증하고 병합한다.
