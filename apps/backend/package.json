@@ -51,5 +51,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "overrides": {
+    "find-my-way": "9.7.0",
+    "minimatch": "10.2.5"
   }
 }
